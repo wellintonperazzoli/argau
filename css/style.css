@@ -1,0 +1,21 @@
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.inverse {
+    background: #222 !important;
+}
+.splashdiv {
+    padding-top: 80px;
+    padding-bottom: 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    overflow-x: hidden;
+}
+#splash{  margin: 0 auto !important; width: 100% !important; background: #e7e7e7 !important;}
+#splash div { -moz-border-radius:5px;-webkit-border-radius:5px;background-color:rgba(255,255,255,0.7);border-radius:5px;bottom:0;margin:20px;padding:15px;position:absolute;z-index:10;}
+#splash h2 {font-size:14px;margin-bottom:5px;}
+#splash strong {color:#000;font-size:11px;text-shadow:none;}
+#splash p {color:#000;font-size:11px;line-height:14px;margin:0!important;text-shadow:none;}
+#splash img{ width: 100%; height: 100%; }
