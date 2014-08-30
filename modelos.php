@@ -14,6 +14,7 @@
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/lightbox.css" rel="stylesheet">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -30,6 +31,30 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/lightbox.js"></script>
+        
+        <style>
+            .thumbnail{
+                padding: 5px;
+                background: transparent;
+                color: silver;
+                text-align: center;
+            }
+            .thumbnail:hover{
+                background: white;
+                text-decoration: none;
+                color: #428bca;
+                -webkit-transition: color 0.8s ease-in, border-color 0.8s ease-in, background 0.8s ease-in;
+                -moz-transition: color 0.8s ease-in, border-color 0.8s ease-in, background 0.8s ease-in;
+                -ms-transition: color 0.8s ease-in, border-color 0.8s ease-in, background 0.8s ease-in;
+                -o-transition: color 0.8s ease-in, border-color 0.8s ease-in, background 0.8s ease-in;
+                transition: color 0.8s ease-in, border-color 0.8s ease-in, background 0.8s ease-in;
+            }
+            .thumbnail img
+            {
+                height: 200px;
+            }
+        </style>
     </head>
 
     <body style="background: #222;">
@@ -54,25 +79,45 @@
                                 <li>
                                     <a href="produtos.html">Produtos</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="modelos.php">Modelos</a>
                                 </li>
-                                <li class="active">
+                                <li>
                                     <a href="contato.html">Contato</a>
                                 </li>
                             </ul>
                         </div>
                     </nav>
-                    <div class="row featurette" style="margin-top: 60px;">
-                        <div class="col-md-5">
-                          <h2 class="featurette-heading">Contato.<span class="text-muted"><br>Solicite seu orçamento!</span></h2>
-                          <br><br><br>
-                          <p class="lead"><b>Fone:</b> (41) 9920-4710</p>
-                          <p class="lead"><b>Email:</b> nilper@hotmail.com</p>
+                    
+                    <div class="row clearfix" style="margin-top: 60px;">
+                        <div class="col-md-12">
+                            <h3>Modelos</h3>
+                            <hr>
                         </div>
-                        <div class="col-md-7">
-                          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3604.8290209368333!2d-49.31226149999999!3d-25.3770462!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce0eff1b78203%3A0x10bf575a0db25b30!2sRua+Hugo+de+Oliveira%2C+63+-+Loteamento+Montparnasse!5e0!3m2!1spt-BR!2s!4v1403653787178" width="600" height="450" frameborder="0"></iframe>
-                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <?php
+                            $modelos = scandir('./images/modelos');
+                            foreach($modelos as $key=>$img):
+                                if($img == '.' || $img == '..' || $img == 'Thumbs.db') continue;
+                                $path = utf8_encode($img);
+                                $path = str_replace(' ', '%20', $path);
+                                $path = str_replace('ú', '%FA', $path);
+                                $path = str_replace('ç', '%E7', $path);
+                                $path = str_replace('ã', '%E3', $path);
+                                $path = str_replace('í', '%ED', $path);
+                                $path = './images/modelos/'.$path;
+                                $name = utf8_encode(str_replace('.jpg', '', $img));
+                            ?>
+                            <div class="col-md-4">
+                                <a href="<?=$path?>" data-lightbox="image-<?=$key?>" data-title="<?=$name?>" class="col-xs-10 col-xs-offset-1 thumbnail">
+                                    <img alt="<?=$name?>" src="<?=$path?>" />
+                                    <h4><?=$name?></h4>
+                                </a>
+                            </div>
+                            <?php
+                            endforeach;
+                        ?>
                     </div>
                 </div>
             </div>
