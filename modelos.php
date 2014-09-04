@@ -9,6 +9,7 @@
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/lightbox.css" rel="stylesheet" type="text/css"/>
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -18,6 +19,7 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        <script src="js/lightbox.js" type="text/javascript"></script>
         
         <style>
             .thumbnail{
